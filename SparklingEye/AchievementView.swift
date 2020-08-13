@@ -10,95 +10,25 @@ import SwiftUI
 
 struct AchievementView: View {
     var body: some View {
-//        Image(systemName: "chevron.left")
+
         
         ZStack {
 //            Text("成就系统")
 //                .foregroundColor(Color(#colorLiteral(red: 0.9803921569, green: 0.6196078431, blue: 0.5529411765, alpha: 1)))
 //                .font(.system(size: 21, weight: .semibold))
             VStack {
-                ZStack {
-                    RoundedRectangle(cornerRadius: 20)
-                        .foregroundColor(Color(#colorLiteral(red: 0.9843137255, green: 0.7215686275, blue: 0.6745098039, alpha: 1)).opacity(0.88))
-                        .padding(.vertical)
-                    
-                    VStack {
-                        HStack {
-                            Text("累计训练天数：")
-                                .foregroundColor(.white)
-                                .font(.system(size: 18, weight: .semibold))
-                            Spacer()
-                        }.padding()
-                        
-                        HStack(alignment: .firstTextBaseline, spacing: 0) {
-                            Text("7")
-                                .foregroundColor(Color(#colorLiteral(red: 0.9764705882, green: 0.9764705882, blue: 0.9764705882, alpha: 1)))
-                                .font(.system(size: 100, weight: .medium, design: .rounded))
-                            Text("天")
-                                .foregroundColor(Color(#colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 1)))
-                                .font(.system(size: 16, weight: .semibold))
-                                .offset(x: -10)
-                        }
-                        ZStack {
-                            RoundedRectangle(cornerRadius: 20)
-                                .stroke(Color.white, lineWidth: 5)
-                                .padding()
-                            
-                            UpPrintView()
-                            
-                            
-                        }
-                        .padding()
-                        Spacer()
-                        
-                    }.padding()
-                }
+                TopCardView()
                 
                 
                 
-                ZStack {
-                    RoundedRectangle(cornerRadius: 20)
-                        .foregroundColor(Color(#colorLiteral(red: 0.9843137255, green: 0.7215686275, blue: 0.6745098039, alpha: 1)).opacity(0.88))
-                    
-                    VStack {
-                        HStack {
-                            Text("累计训练次数：")
-                                .foregroundColor(.white)
-                                .font(.system(size: 18, weight: .semibold))
-                            Spacer()
-                        }.padding()
-                        
-                        HStack(alignment: .firstTextBaseline, spacing: 0) {
-                            Text("18")
-                                .foregroundColor(Color(#colorLiteral(red: 0.9764705882, green: 0.9764705882, blue: 0.9764705882, alpha: 1)))
-                                .font(.system(size: 100, weight: .medium, design: .rounded))
-                            Text("次")
-                                .foregroundColor(Color(#colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 1)))
-                                .font(.system(size: 16, weight: .semibold))
-                        }
-                        ZStack {
-                            RoundedRectangle(cornerRadius: 20)
-                                .stroke(Color.white, lineWidth: 5)
-                                .padding()
-                            
-                            DownPrintView()
-                            
-                            
-                        }
-                        .padding()
-                        Spacer()
-                        
-                    }.padding()
-                }
+                BottomCardView()
             }
             .padding(.horizontal)
             .padding(.vertical, 8)
-            
            
-            
-            
         }
         .navigationBarTitle("成就系统", displayMode: .inline)
+        .navigationBarColor(backgroundColor: UIColor(red: 0, green: 0, blue: 0, alpha: 0), tintColor: UIColor(red: 250 / 255.0, green: 158 / 255.0, blue: 141 / 255.0, alpha: 1), hiddenShadow: true)
     }
 }
 
@@ -136,7 +66,7 @@ struct RedEyePrintView: View {
     }
 }
 
-struct UpPrintView: View {
+struct TopPrintView: View {
     var body: some View {
         VStack {
             HStack {
@@ -176,7 +106,7 @@ struct EmptyPrintView: View {
     }
 }
 
-struct DownPrintView: View {
+struct BottomPrintView: View {
     var body: some View {
         VStack {
             HStack {
@@ -204,6 +134,86 @@ struct DownPrintView: View {
                 Spacer()
                 RedEyePrintView()
             }
+        }
+    }
+}
+
+struct TopCardView: View {
+    var body: some View {
+        ZStack {
+            RoundedRectangle(cornerRadius: 20)
+                .foregroundColor(Color(#colorLiteral(red: 0.9843137255, green: 0.7215686275, blue: 0.6745098039, alpha: 1)).opacity(0.88))
+                .padding(.vertical)
+            
+            VStack {
+                HStack {
+                    Text("累计训练天数：")
+                        .foregroundColor(.white)
+                        .font(.system(size: 18, weight: .semibold))
+                    Spacer()
+                }.padding()
+                
+                HStack(alignment: .firstTextBaseline, spacing: 0) {
+                    Text("7")
+                        .foregroundColor(Color(#colorLiteral(red: 0.9764705882, green: 0.9764705882, blue: 0.9764705882, alpha: 1)))
+                        .font(.system(size: 100, weight: .medium, design: .rounded))
+                    Text("天")
+                        .foregroundColor(Color(#colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 1)))
+                        .font(.system(size: 16, weight: .semibold))
+                        .offset(x: -10)
+                }
+                ZStack {
+                    RoundedRectangle(cornerRadius: 20)
+                        .stroke(Color.white, lineWidth: 5)
+                        .padding()
+                    
+                    TopPrintView()
+                    
+                    
+                }
+                .padding()
+                Spacer()
+                
+            }.padding()
+        }
+    }
+}
+
+struct BottomCardView: View {
+    var body: some View {
+        ZStack {
+            RoundedRectangle(cornerRadius: 20)
+                .foregroundColor(Color(#colorLiteral(red: 0.9843137255, green: 0.7215686275, blue: 0.6745098039, alpha: 1)).opacity(0.88))
+            
+            VStack {
+                HStack {
+                    Text("累计训练次数：")
+                        .foregroundColor(.white)
+                        .font(.system(size: 18, weight: .semibold))
+                    Spacer()
+                }.padding()
+                
+                HStack(alignment: .firstTextBaseline, spacing: 0) {
+                    Text("18")
+                        .foregroundColor(Color(#colorLiteral(red: 0.9764705882, green: 0.9764705882, blue: 0.9764705882, alpha: 1)))
+                        .font(.system(size: 100, weight: .medium, design: .rounded))
+                    Text("次")
+                        .foregroundColor(Color(#colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 1)))
+                        .font(.system(size: 16, weight: .semibold))
+                }
+                ZStack {
+                    RoundedRectangle(cornerRadius: 20)
+                        .stroke(Color.white, lineWidth: 5)
+                        .padding()
+                    
+                    BottomPrintView()
+                    
+                    
+                }
+                .padding()
+                Spacer()
+                
+            }.padding()
         }
     }
 }
