@@ -18,7 +18,7 @@ struct ContentView: View {
             ZStack {
                 BackgroundView()
                 VStack {
-                    HeadView()
+                    HeadView(settingPage: $settingPage)
                     ZStack {
                         VStack {
                             WeekView().padding()
@@ -26,7 +26,7 @@ struct ContentView: View {
                         }
                         .blur(radius: settingPage ? 20 : 0)
                         if settingPage {
-                            SettingView()
+                            SettingView(settingPage: $settingPage)
                         }
                     }
                     Spacer()
@@ -34,7 +34,6 @@ struct ContentView: View {
                 }
             }
             .navigationBarHidden(true)
-//                .navigationBarTitle("") //随便写的
             
             
         }
@@ -58,6 +57,7 @@ struct BackgroundView: View {
 
 // 音量按钮
 struct HeadView: View {
+    @Binding var settingPage: Bool
     var body: some View {
         
         HStack {
@@ -69,11 +69,14 @@ struct HeadView: View {
             
             Spacer()
             
-            Image("setting")
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-                .frame(width: 44, height: 44)
-                .padding(.horizontal)
+            Button(action: {self.settingPage.toggle()}) {
+                Image("setting")
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: 44, height: 44)
+                    .padding(.horizontal)
+            }
+                
         }
     }
 }
@@ -132,7 +135,7 @@ struct CardView: View {
     var body: some View {
         HStack(alignment: .top) {
             VStack {
-                NavigationLink(destination: EmptyView()){
+                NavigationLink(destination: RecordView()){
                     RecordCardView()
                 }
                 NavigationLink(destination: AchievementView()){
