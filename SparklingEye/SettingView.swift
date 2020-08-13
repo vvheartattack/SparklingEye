@@ -9,6 +9,7 @@
 import SwiftUI
 
 struct SettingView: View {
+    @Binding var settingPage: Bool
     var selections = ["夜间模式","切换语言","定时提醒","iCloud 同步"]
     var body: some View {
         
@@ -19,10 +20,23 @@ struct SettingView: View {
                 .padding(.horizontal)
             
             VStack(spacing: 16) {
-                Text("设置")
-                    .foregroundColor(Color(#colorLiteral(red: 0.3333333333, green: 0.3568627451, blue: 0.431372549, alpha: 1)))
-                    .font(.system(size: 22, weight: .semibold))
-                    .padding()
+                ZStack {
+                    Text("设置")
+                        .foregroundColor(Color(#colorLiteral(red: 0.3333333333, green: 0.3568627451, blue: 0.431372549, alpha: 1)))
+                        .font(.system(size: 22, weight: .semibold))
+                        .padding()
+//                        .padding(.top)
+                    HStack {
+                        Spacer()
+                        Button(action: {self.settingPage.toggle()}) {
+                            Image(systemName: "xmark.circle.fill")
+                                .foregroundColor(Color(#colorLiteral(red: 0.3333333333, green: 0.3568627451, blue: 0.431372549, alpha: 1)))
+                                .font(.system(size: 25, weight: .medium))
+                                .padding()
+//                                .padding(.top)
+                        }
+                    }.padding()
+                }
                 
                 
                 ZStack {
@@ -88,7 +102,7 @@ struct SettingView: View {
 
 struct SettingView_Previews: PreviewProvider {
     static var previews: some View {
-        SettingView()
+        SettingView(settingPage: .constant(false))
     }
 }
 
