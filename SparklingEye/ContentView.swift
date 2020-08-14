@@ -10,6 +10,7 @@ import SwiftUI
 
 struct ContentView: View {
     @State  var settingPage: Bool = false
+    @State private var onAppearAnimation = true
     
     var body: some View {
         
@@ -17,27 +18,57 @@ struct ContentView: View {
             
             ZStack {
                 BackgroundView()
-                VStack {
-                    HeadView(settingPage: $settingPage)
-                    ZStack {
-                        VStack {
-                            WeekView().padding()
-                            CardView()
+                ScrollView {
+                    VStack {
+                        ZStack {
+                            LazyVStack {
+                                WeekView().padding()
+                                    .scaleEffect(onAppearAnimation ? 1.1 : 1)
+                                    .animation(.interpolatingSpring(mass: 1.0, stiffness: 150.0, damping: 10, initialVelocity: 0))
+                                    .opacity(onAppearAnimation ? 0.1 : 1)
+                                    .animation(.easeInOut)
+                                CardView()
+                                    .scaleEffect(onAppearAnimation ? 1.1 : 1)
+                                    .animation(.interpolatingSpring(mass: 1.0, stiffness: 150.0, damping: 10, initialVelocity: 0))
+                                    .opacity(onAppearAnimation ? 0.1 : 1)
+                                    .animation(.easeInOut)
+                            }
+                            .blur(radius: settingPage ? 20 : 0)
+                            .onAppear {
+                                DispatchQueue.global().async {
+                                    onAppearAnimation = false
+                                }
+                            }
                         }
-                        .blur(radius: settingPage ? 20 : 0)
-                        if settingPage {
-                            SettingView(settingPage: $settingPage)
-                                .transition(AnyTransition.move(edge: .bottom))
-                        }
+                        Spacer()
+                        
                     }
-                    Spacer()
-                    
                 }
+                
+                SettingView(settingPage: $settingPage)
+                    .offset(y: settingPage ? 0 : 800)
+                    .opacity(settingPage ? 1 : 0)
+                
             }
-            .navigationBarHidden(true)
-            
-            
+            .navigationBarTitleDisplayMode(.inline)
+            .navigationBarItems(leading:
+                                    Image("volume")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(width: 44, height: 44),
+                                trailing:  Button(action: {
+                                    withAnimation(.spring()) {
+                                        self.settingPage.toggle()
+                                    }
+                                }) {
+                                    Image("setting")
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fit)
+                                        .frame(width: 44, height: 44)
+                                }
+            )
         }
+        .navigationBarColor(backgroundColor: UIColor(red: 0, green: 0, blue: 0, alpha: 0), tintColor: UIColor(red: 250 / 255.0, green: 158 / 255.0, blue: 141 / 255.0, alpha: 1), hiddenShadow: true)
         
     }
 }
@@ -56,35 +87,34 @@ struct BackgroundView: View {
 }
 
 
-// 音量按钮
-struct HeadView: View {
-    @Binding var settingPage: Bool
-    var body: some View {
-        
-        HStack {
-            Image("volume")
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-                .frame(width: 44, height: 44)
-                .padding(.horizontal)
-            
-            Spacer()
-            
-            Button(action: {
-                withAnimation(.spring()) {
-                    self.settingPage.toggle()
-                }
-            }) {
-                Image("setting")
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(width: 44, height: 44)
-                    .padding(.horizontal)
-            }
-            
-        }
-    }
-}
+//// 音量按钮
+//struct HeadView: View {
+//    @Binding var settingPage: Bool
+//    var body: some View {
+//
+//        HStack {
+//            Image("volume")
+//                .resizable()
+//                .aspectRatio(contentMode: .fill)
+//                .frame(width: 44, height: 44)
+//                .padding(.horizontal)
+//
+//            Spacer()
+//
+//            Button(action: {
+//                withAnimation(.spring()) {
+//                    self.settingPage.toggle()
+//                }
+//            }) {
+//                Image("setting")
+//                    .resizable()
+//                    .aspectRatio(contentMode: .fill)
+//                    .frame(width: 44, height: 44)
+//                    .padding(.horizontal)
+//            }
+//        }
+//    }
+//}
 
 
 struct WeekView: View {
