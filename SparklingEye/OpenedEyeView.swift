@@ -56,9 +56,16 @@ struct OpenedEyeView: View {
                     .padding()
                     .padding(8)
                     .offset(y: -45)
-                    Text("请眨眼\n  3 次")
-                        .foregroundColor(Color(#colorLiteral(red: 0.2588235294, green: 0.2588235294, blue: 0.4156862745, alpha: 1)).opacity(0.3))
-                        .font(.system(size: 50, weight: .medium, design: .rounded))
+                    VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/) {
+                        Text("   明眸！")
+                            .foregroundColor(Color(#colorLiteral(red: 0.537254902, green: 0.6901960784, blue: 0.6823529412, alpha: 1)).opacity(0.6))
+                            .font(.system(size: 72, weight: .medium))
+                            .padding()
+                        Text("放松完毕")
+                            .foregroundColor(Color(#colorLiteral(red: 0.2588235294, green: 0.2588235294, blue: 0.4156862745, alpha: 1)).opacity(0.3))
+                            .font(.system(size: 45, weight: .medium))
+                    }
+                    
                     Spacer()
                 
                 }
