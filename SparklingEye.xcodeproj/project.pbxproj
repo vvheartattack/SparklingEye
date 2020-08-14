@@ -20,6 +20,7 @@
 		09CE4F8C24E1A51E0011DB28 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09CE4F8A24E1A51E0011DB28 /* LaunchScreen.storyboard */; };
 		09D32F0F24E3CD0D00D1CA4B /* RingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D32F0E24E3CD0D00D1CA4B /* RingView.swift */; };
 		09D32F1124E4207500D1CA4B /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D32F1024E4207500D1CA4B /* SettingView.swift */; };
+		63D7B67F24E6B62D004F2BB4 /* ResponsiveButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D7B67E24E6B62D004F2BB4 /* ResponsiveButtonStyle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		09CE4F8D24E1A51E0011DB28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		09D32F0E24E3CD0D00D1CA4B /* RingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingView.swift; sourceTree = "<group>"; };
 		09D32F1024E4207500D1CA4B /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		63D7B67E24E6B62D004F2BB4 /* ResponsiveButtonStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponsiveButtonStyle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 		09944E3224E5357500569818 /* Modifier */ = {
 			isa = PBXGroup;
 			children = (
+				63D7B67E24E6B62D004F2BB4 /* ResponsiveButtonStyle.swift */,
 				09944E3324E5359600569818 /* NavigationBarColorModifier.swift */,
 			);
 			path = Modifier;
@@ -190,6 +193,7 @@
 				09CE4F8224E1A51C0011DB28 /* SceneDelegate.swift in Sources */,
 				09232DAE24E692D100C9D78C /* AddRecordView.swift in Sources */,
 				098ECC1E24E44E320044F60C /* AchievementView.swift in Sources */,
+				63D7B67F24E6B62D004F2BB4 /* ResponsiveButtonStyle.swift in Sources */,
 				09944E3424E5359600569818 /* NavigationBarColorModifier.swift in Sources */,
 				09CE4F8424E1A51C0011DB28 /* ContentView.swift in Sources */,
 				09232DAA24E5509C00C9D78C /* RelaxEyeView.swift in Sources */,
@@ -261,7 +265,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -316,7 +320,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -332,14 +336,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"SparklingEye/Preview Content\"";
-				DEVELOPMENT_TEAM = 324FCA6Q9A;
+				DEVELOPMENT_TEAM = WHS7F725MC;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = SparklingEye/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = me.mika.SparklingEye;
+				PRODUCT_BUNDLE_IDENTIFIER = me.jjaychen1e.SparklingEye;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

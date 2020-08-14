@@ -80,7 +80,7 @@ struct HeadView: View {
                     .frame(width: 44, height: 44)
                     .padding(.horizontal)
             }
-                
+            
         }
     }
 }
@@ -139,17 +139,15 @@ struct CardView: View {
     var body: some View {
         HStack(alignment: .top) {
             VStack {
-                NavigationLink(destination: RecordView()){
-                    RecordCardView()
-                }
-                NavigationLink(destination: AchievementView()){
-                    AchievementCardView()
-                }
+                RecordCardView()
+                    .navigationLinkWithResponsiveButtonStype(desination: RecordView())
+                
+                AchievementCardView()
+                    .navigationLinkWithResponsiveButtonStype(desination: AchievementView())
             }
             VStack {
-                NavigationLink(destination: RelaxEyeView()){
-                    RelaxCardView()
-                }
+                RelaxCardView()
+                    .navigationLinkWithResponsiveButtonStype(desination: RelaxEyeView())
             }
         }
     }
@@ -191,7 +189,7 @@ struct RelaxCardView: View {
                             .font(.system(size: 18, weight: .semibold))
                     }
                     .padding()
-            )
+                )
                 .padding()
         }
     }
@@ -228,7 +226,7 @@ struct AchievementCardView: View {
                         
                     }
                     .padding()
-            )
+                )
                 .padding()
         }
         
@@ -281,7 +279,7 @@ struct RecordCardView: View {
                         }
                     }
                     .padding()
-            )
+                )
                 .padding()
         }
     }
