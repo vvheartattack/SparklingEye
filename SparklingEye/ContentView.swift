@@ -27,6 +27,7 @@ struct ContentView: View {
                         .blur(radius: settingPage ? 20 : 0)
                         if settingPage {
                             SettingView(settingPage: $settingPage)
+                                .transition(AnyTransition.move(edge: .bottom))
                         }
                     }
                     Spacer()
@@ -69,7 +70,11 @@ struct HeadView: View {
             
             Spacer()
             
-            Button(action: {self.settingPage.toggle()}) {
+            Button(action: {
+                withAnimation(.spring()) {
+                    self.settingPage.toggle()
+                }
+            }) {
                 Image("setting")
                     .resizable()
                     .aspectRatio(contentMode: .fill)

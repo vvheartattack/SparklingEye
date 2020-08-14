@@ -28,7 +28,11 @@ struct SettingView: View {
 //                        .padding(.top)
                     HStack {
                         Spacer()
-                        Button(action: {self.settingPage.toggle()}) {
+                        Button(action: {
+                                withAnimation(.spring()) {
+                                    self.settingPage.toggle()
+                                }
+                        }) {
                             Image(systemName: "xmark.circle.fill")
                                 .foregroundColor(Color(#colorLiteral(red: 0.3333333333, green: 0.3568627451, blue: 0.431372549, alpha: 1)))
                                 .font(.system(size: 25, weight: .medium))
