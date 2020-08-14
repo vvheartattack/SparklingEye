@@ -32,7 +32,6 @@ struct RelaxEyeView: View {
                                         .shadow(color: Color(#colorLiteral(red: 0.6431372549, green: 0.9333333333, blue: 1, alpha: 1)), radius: 2, x: 0, y: 0)
                                         .offset(y: 2)
                                         .offset(y: testAnimation ? 45 : 0)
-                                        .animation(Animation.easeInOut(duration: 1))
                                     Spacer()
                                 }
                             )
@@ -54,7 +53,6 @@ struct RelaxEyeView: View {
                                         .shadow(color: Color(#colorLiteral(red: 0.6431372549, green: 0.9333333333, blue: 1, alpha: 1)), radius: 2, x: 0, y: 0)
                                         .offset(y: 2)
                                         .offset(y: testAnimation ? 45 : 0)
-                                        .animation(.easeInOut(duration: 1))
                                     Spacer()
                                 }
                             )
@@ -72,11 +70,12 @@ struct RelaxEyeView: View {
             
             }
             .padding()
-            
-        }
-        .onAppear {
-            DispatchQueue.global().asyncAfter(deadline: .now() + 1) {
-                testAnimation.toggle()
+            .onAppear {
+                DispatchQueue.global().asyncAfter(deadline: .now() + 1) {
+                    withAnimation(Animation.easeInOut(duration: 1)) {
+                        testAnimation.toggle()
+                    }
+                }
             }
         }
     }
