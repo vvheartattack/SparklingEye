@@ -55,7 +55,7 @@ struct RecordView: View {
             
         }
         .navigationBarTitle("视力记录", displayMode: .inline)
-        .navigationBarColor(backgroundColor: UIColor(red: 0, green: 0, blue: 0, alpha: 0), tintColor: UIColor(red: 190 / 255.0, green: 227 / 255.0, blue: 219 / 255.0, alpha: 1), hiddenShadow: true)
+        .navigationBarColor(backgroundColor: UIColor(red: 0, green: 0, blue: 0, alpha: 0), tintColor: UIColor(Color(#colorLiteral(red: 0.3333333333, green: 0.3568627451, blue: 0.431372549, alpha: 1))), hiddenShadow: true)
         .navigationBarItems(trailing:
                                 Button(action: {
                                     showAddRecordView.toggle()
