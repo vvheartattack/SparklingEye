@@ -9,6 +9,7 @@
 import SwiftUI
 
 struct RelaxEyeView: View {
+    @State private var testAnimation: Bool = true
     var body: some View {
         
         ZStack {
@@ -30,6 +31,8 @@ struct RelaxEyeView: View {
                                         .foregroundColor(Color(#colorLiteral(red: 0.7450980392, green: 0.8901960784, blue: 0.8588235294, alpha: 1)))
                                         .shadow(color: Color(#colorLiteral(red: 0.6431372549, green: 0.9333333333, blue: 1, alpha: 1)), radius: 2, x: 0, y: 0)
                                         .offset(y: 2)
+                                        .offset(y: testAnimation ? 45 : 0)
+                                        .animation(Animation.easeInOut(duration: 1))
                                     Spacer()
                                 }
                             )
@@ -50,6 +53,8 @@ struct RelaxEyeView: View {
                                         .foregroundColor(Color(#colorLiteral(red: 0.7450980392, green: 0.8901960784, blue: 0.8588235294, alpha: 1)))
                                         .shadow(color: Color(#colorLiteral(red: 0.6431372549, green: 0.9333333333, blue: 1, alpha: 1)), radius: 2, x: 0, y: 0)
                                         .offset(y: 2)
+                                        .offset(y: testAnimation ? 45 : 0)
+                                        .animation(.easeInOut(duration: 1))
                                     Spacer()
                                 }
                             )
@@ -68,6 +73,11 @@ struct RelaxEyeView: View {
             }
             .padding()
             
+        }
+        .onAppear {
+            DispatchQueue.global().asyncAfter(deadline: .now() + 1) {
+                testAnimation.toggle()
+            }
         }
     }
 }
