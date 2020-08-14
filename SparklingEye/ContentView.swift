@@ -144,13 +144,12 @@ struct CardView: View {
                     RecordCardView()
                 }
                 NavigationLink(destination: AchievementView()){
-                    AchievementCardView().padding()
+                    AchievementCardView()
                 }
             }
             VStack {
-                NavigationLink(destination: EmptyView()){
+                NavigationLink(destination: RelaxEyeView()){
                     RelaxCardView()
-                    
                 }
             }
         }
