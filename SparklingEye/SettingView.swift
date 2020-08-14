@@ -57,12 +57,19 @@ struct SettingView: View {
                     SelectionView()
                         .overlay(
                             HStack {
-                                Toggle(isOn: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Value@*/.constant(true)/*@END_MENU_TOKEN@*/) {
-                                    Text(self.selections[1])
+                                Text(self.selections[1])
+                                    .foregroundColor(Color(#colorLiteral(red: 0.3333333333, green: 0.3568627451, blue: 0.431372549, alpha: 1)))
+                                    .font(.system(size: 16, weight: .medium))
+                                    .padding()
+                                Spacer()
+                                Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+                                    Image(systemName: "chevron.right")
                                         .foregroundColor(Color(#colorLiteral(red: 0.3333333333, green: 0.3568627451, blue: 0.431372549, alpha: 1)))
                                         .font(.system(size: 16, weight: .medium))
-                                        .padding()
-                                }
+                                })
+                                .padding()
+                                    
+                                
                         })
                 }
                     
@@ -76,6 +83,12 @@ struct SettingView: View {
                                 .font(.system(size: 16, weight: .medium))
                                 .padding()
                                     Spacer()
+                                    Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+                                        Image(systemName: "chevron.right")
+                                            .foregroundColor(Color(#colorLiteral(red: 0.3333333333, green: 0.3568627451, blue: 0.431372549, alpha: 1)))
+                                            .font(.system(size: 16, weight: .medium))
+                                    })
+                                    .padding()
                                 }
                             })
                 }
