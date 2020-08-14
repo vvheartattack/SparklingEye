@@ -30,8 +30,8 @@ struct RelaxEyeView: View {
                                         .frame(width:52, height: 52)
                                         .foregroundColor(Color(#colorLiteral(red: 0.7450980392, green: 0.8901960784, blue: 0.8588235294, alpha: 1)))
                                         .shadow(color: Color(#colorLiteral(red: 0.6431372549, green: 0.9333333333, blue: 1, alpha: 1)), radius: 2, x: 0, y: 0)
-                                        .offset(x: 2)
-                                        .offset(x: testAnimation ? 45 : 0)
+                                        .offset(x: 8, y: -16)
+                                        .offset(x: testAnimation ? 45 / 1.414 + 1 : 0, y: testAnimation ? 45 / 1.414 + 1 : 0)
                                     Spacer()
                                 }
                             )
@@ -46,13 +46,13 @@ struct RelaxEyeView: View {
                             .shadow(color: Color(#colorLiteral(red: 0.2705882353, green: 0.3254901961, blue: 0.3921568627, alpha: 1)).opacity(0.5), radius: 3.5, x: 0.0, y: 11)
                             
                             .overlay(
-                                HStack {                                    
+                                HStack {
                                     Circle()
                                         .frame(width:52, height: 52)
                                         .foregroundColor(Color(#colorLiteral(red: 0.7450980392, green: 0.8901960784, blue: 0.8588235294, alpha: 1)))
                                         .shadow(color: Color(#colorLiteral(red: 0.6431372549, green: 0.9333333333, blue: 1, alpha: 1)), radius: 2, x: 0, y: 0)
-                                        .offset(x: 2)
-                                        .offset(x: testAnimation ? 45 : 0)
+                                        .offset(x: 8, y: -16)
+                                        .offset(x: testAnimation ? 45 / 1.414 + 1 : 0, y: testAnimation ? 45 / 1.414 + 1 : 0)
                                     Spacer()
                                 }
                             )
@@ -62,7 +62,7 @@ struct RelaxEyeView: View {
                 .padding()
                 .padding()
                 .padding(8)
-                Text("向左看")
+                Text("向左上方看")
                     .foregroundColor(Color(#colorLiteral(red: 0.2588235294, green: 0.2588235294, blue: 0.4156862745, alpha: 1)).opacity(0.3))
                     .font(.system(size: 45, weight: .medium))
                 Spacer()
