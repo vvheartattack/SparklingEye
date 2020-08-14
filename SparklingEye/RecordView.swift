@@ -9,6 +9,8 @@
 import SwiftUI
 
 struct RecordView: View {
+    @State private var showAddRecordView = false
+    
     var body: some View {
         ZStack{
             Color(#colorLiteral(red: 0.9725490196, green: 0.9725490196, blue: 0.9725490196, alpha: 1)).edgesIgnoringSafeArea(.all) //背景
@@ -54,14 +56,24 @@ struct RecordView: View {
         }
         .navigationBarTitle("视力记录", displayMode: .inline)
         .navigationBarColor(backgroundColor: UIColor(red: 0, green: 0, blue: 0, alpha: 0), tintColor: UIColor(red: 190 / 255.0, green: 227 / 255.0, blue: 219 / 255.0, alpha: 1), hiddenShadow: true)
-        .navigationBarItems(trailing:Button(action: {}, label: {
-            Image(systemName: "plus")
-        }))
+        .navigationBarItems(trailing:
+                                Button(action: {
+                                    showAddRecordView.toggle()
+                                }, label: {
+                                    Image(systemName: "plus")
+                                        .font(.system(size: 26))
+                                })
+        )
+        .sheet(isPresented: $showAddRecordView) {
+            AddRecordView(isPresented: $showAddRecordView)
+        }
     }
 }
 
 struct RecordView_Previews: PreviewProvider {
     static var previews: some View {
-        RecordView()
+        NavigationView{
+            RecordView()
+        }
     }
 }
