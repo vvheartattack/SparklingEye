@@ -5,7 +5,6 @@
 //  Created by Mika on 2020/8/14.
 //  Copyright © 2020 Mika. All rights reserved.
 //
-
 import SwiftUI
 
 struct AddRecordView: View {
@@ -15,7 +14,14 @@ struct AddRecordView: View {
     @State private var showRightEyesightPicker = false
     @State var selectedDate = Date()
     
+    private var selectedDateString: String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "YYYY/MM/dd"
+        return dateFormatter.string(from: selectedDate)
+    }
+    
     @Binding var isPresented: Bool
+    var saveAction: (EyesightRecord) -> ()
     
     var body: some View {
         NavigationView {
@@ -78,6 +84,7 @@ struct AddRecordView: View {
                 ToolbarItem(placement: .confirmationAction) {
                     Button(action: {
                         isPresented.toggle()
+                        saveAction(EyesightRecord(recordDate: selectedDateString, lefeEyesight: leftEyesightSelection, rightEyesight: rightEyesightSelection))
                     }, label: {
                         Text("保存")
                     })
@@ -96,6 +103,6 @@ struct AddRecordView: View {
 
 struct AddRecordView_Previews: PreviewProvider {
     static var previews: some View {
-        AddRecordView(isPresented: .constant(true))
+        AddRecordView(isPresented: .constant(true), saveAction: { _ in })
     }
 }
