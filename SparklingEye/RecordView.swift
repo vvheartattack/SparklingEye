@@ -95,14 +95,28 @@ struct EyesightRecordCardView: View {
                 }
                 
                 HStack{
-                    Text(lefeEyesight)
-                        .foregroundColor(.white)
-                        .font(.system(size: 72, weight: .semibold))
+                    HStack(alignment: .firstTextBaseline) {
+                        Text(lefeEyesight)
+                            .foregroundColor(.white)
+                            .font(.system(size: 72, weight: .semibold))
+                        Text("L")
+                            .foregroundColor(.white)
+                            .font(.system(size: 20,weight: .semibold))
+                            .offset(x: -5)
+                    }
+                    
                     
                     Spacer()
-                    Text(rightEyesight)
-                        .foregroundColor(.white)
-                        .font(.system(size: 72, weight: .semibold))
+                    HStack(alignment: .firstTextBaseline) {
+                        Text(rightEyesight)
+                            .foregroundColor(.white)
+                            .font(.system(size: 72, weight: .semibold))
+                        Text("R")
+                            .foregroundColor(.white)
+                            .font(.system(size: 20,weight: .semibold))
+                            .offset(x: -5)
+                    }
+                    
                 }.padding()
             }
             .padding()
