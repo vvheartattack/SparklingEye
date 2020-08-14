@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		09232DAA24E5509C00C9D78C /* RelaxEyeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09232DA924E5509C00C9D78C /* RelaxEyeView.swift */; };
 		09232DAC24E57F1500C9D78C /* RecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09232DAB24E57F1500C9D78C /* RecordView.swift */; };
+		09232DAE24E692D100C9D78C /* AddRecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09232DAD24E692D100C9D78C /* AddRecordView.swift */; };
 		098ECC1E24E44E320044F60C /* AchievementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098ECC1D24E44E320044F60C /* AchievementView.swift */; };
 		09944E3424E5359600569818 /* NavigationBarColorModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09944E3324E5359600569818 /* NavigationBarColorModifier.swift */; };
 		09CE4F8024E1A51C0011DB28 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09CE4F7F24E1A51C0011DB28 /* AppDelegate.swift */; };
@@ -24,6 +25,7 @@
 /* Begin PBXFileReference section */
 		09232DA924E5509C00C9D78C /* RelaxEyeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelaxEyeView.swift; sourceTree = "<group>"; };
 		09232DAB24E57F1500C9D78C /* RecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordView.swift; sourceTree = "<group>"; };
+		09232DAD24E692D100C9D78C /* AddRecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecordView.swift; sourceTree = "<group>"; };
 		098ECC1D24E44E320044F60C /* AchievementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementView.swift; sourceTree = "<group>"; };
 		09944E3324E5359600569818 /* NavigationBarColorModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationBarColorModifier.swift; sourceTree = "<group>"; };
 		09CE4F7C24E1A51C0011DB28 /* SparklingEye.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SparklingEye.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -59,6 +61,7 @@
 				09CE4F8324E1A51C0011DB28 /* ContentView.swift */,
 				09232DA924E5509C00C9D78C /* RelaxEyeView.swift */,
 				09232DAB24E57F1500C9D78C /* RecordView.swift */,
+				09232DAD24E692D100C9D78C /* AddRecordView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -185,6 +188,7 @@
 				09D32F1124E4207500D1CA4B /* SettingView.swift in Sources */,
 				09CE4F8024E1A51C0011DB28 /* AppDelegate.swift in Sources */,
 				09CE4F8224E1A51C0011DB28 /* SceneDelegate.swift in Sources */,
+				09232DAE24E692D100C9D78C /* AddRecordView.swift in Sources */,
 				098ECC1E24E44E320044F60C /* AchievementView.swift in Sources */,
 				09944E3424E5359600569818 /* NavigationBarColorModifier.swift in Sources */,
 				09CE4F8424E1A51C0011DB28 /* ContentView.swift in Sources */,
