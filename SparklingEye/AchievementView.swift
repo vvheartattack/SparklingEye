@@ -16,15 +16,16 @@ struct AchievementView: View {
 //            Text("成就系统")
 //                .foregroundColor(Color(#colorLiteral(red: 0.9803921569, green: 0.6196078431, blue: 0.5529411765, alpha: 1)))
 //                .font(.system(size: 21, weight: .semibold))
-            VStack {
-                TopCardView()
-                
-                
-                
-                BottomCardView()
+            ScrollView {
+                VStack(spacing: 24) {
+                    TopCardView()
+                    
+                    BottomCardView()
+                    
+                    TopCardView()
+                }
+                .padding()
             }
-            .padding(.horizontal)
-            .padding(.vertical, 8)
            
         }
         .navigationBarTitle("成就系统", displayMode: .inline)
@@ -143,15 +144,16 @@ struct TopCardView: View {
         ZStack {
             RoundedRectangle(cornerRadius: 20)
                 .foregroundColor(Color(#colorLiteral(red: 0.9843137255, green: 0.7215686275, blue: 0.6745098039, alpha: 1)).opacity(0.88))
-                .padding(.vertical)
             
             VStack {
                 HStack {
                     Text("累计训练天数：")
                         .foregroundColor(.white)
-                        .font(.system(size: 18, weight: .semibold))
+                        .font(.system(size: 18, weight: .bold))
                     Spacer()
-                }.padding()
+                }
+                
+                Spacer()
                 
                 HStack(alignment: .firstTextBaseline, spacing: 0) {
                     Text("7")
@@ -162,6 +164,9 @@ struct TopCardView: View {
                         .font(.system(size: 16, weight: .semibold))
                         .offset(x: -10)
                 }
+                
+                Spacer()
+                
                 ZStack {
                     RoundedRectangle(cornerRadius: 20)
                         .stroke(Color.white, lineWidth: 5)
@@ -171,11 +176,10 @@ struct TopCardView: View {
                     
                     
                 }
-                .padding()
-                Spacer()
-                
-            }.padding()
+            }
+            .padding()
         }
+        .aspectRatio(1.5, contentMode: .fit)
     }
 }
 
@@ -189,9 +193,11 @@ struct BottomCardView: View {
                 HStack {
                     Text("累计训练次数：")
                         .foregroundColor(.white)
-                        .font(.system(size: 18, weight: .semibold))
+                        .font(.system(size: 18, weight: .bold))
                     Spacer()
-                }.padding()
+                }
+                
+                Spacer()
                 
                 HStack(alignment: .firstTextBaseline, spacing: 0) {
                     Text("18")
@@ -201,19 +207,19 @@ struct BottomCardView: View {
                         .foregroundColor(Color(#colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 1)))
                         .font(.system(size: 16, weight: .semibold))
                 }
+                
+                Spacer()
+                
                 ZStack {
                     RoundedRectangle(cornerRadius: 20)
                         .stroke(Color.white, lineWidth: 5)
                         .padding()
                     
                     BottomPrintView()
-                    
-                    
                 }
-                .padding()
-                Spacer()
-                
-            }.padding()
+            }
+            .padding()
         }
+        .aspectRatio(1.5, contentMode: .fit)
     }
 }
