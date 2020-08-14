@@ -15,86 +15,87 @@ struct AddRecordView: View {
     @State private var showRightEyesightPicker = false
     @State var selectedDate = Date()
     
+    @Binding var isPresented: Bool
+    
     var body: some View {
         NavigationView {
-            Text("")
-        }
-        .sheet(isPresented: .constant(true), content: {
-            NavigationView {
-                Form {
-                    Section {
-                        HStack {
-                            Text("左眼视力")
-                            Spacer()
-                            Group {
-                                Text(leftEyesightSelection)
-                                Image(systemName: "chevron.right")
-                            }.onTapGesture {
-                                withAnimation {
-                                    showLeftEyesightPicker.toggle()
-                                }
+            Form {
+                Section {
+                    HStack {
+                        Text("左眼视力")
+                        Spacer()
+                        Group {
+                            Text(leftEyesightSelection)
+                            Image(systemName: "chevron.right")
+                        }.onTapGesture {
+                            withAnimation {
+                                showLeftEyesightPicker.toggle()
                             }
                         }
-                        if showLeftEyesightPicker {
-                            Picker(selection: $leftEyesightSelection, label:
+                    }
+                    if showLeftEyesightPicker {
+                        Picker(selection: $leftEyesightSelection, label:
                                 Text("Picker Name")
-                                , content: {
-                                    ForEach(0..<51) { i in
-                                        Text(String(format: "%.1f", 5.0 - Double(i) / 10)).tag(String(format: "%.1f", 5.0 - Double(i) / 10))
-                                    }
-                            })
-                                .pickerStyle(WheelPickerStyle())
-                        }
-                        HStack {
-                            Text("右眼视力")
-                            Spacer()
-                            Group {
-                                Text(rightEyesightSelection)
-                                Image(systemName: "chevron.right")
-                            }.onTapGesture {
-                                withAnimation {
-                                    showRightEyesightPicker.toggle()
+                               , content: {
+                                ForEach(0..<51) { i in
+                                    Text(String(format: "%.1f", 5.0 - Double(i) / 10)).tag(String(format: "%.1f", 5.0 - Double(i) / 10))
                                 }
+                               })
+                            .pickerStyle(WheelPickerStyle())
+                    }
+                    HStack {
+                        Text("右眼视力")
+                        Spacer()
+                        Group {
+                            Text(rightEyesightSelection)
+                            Image(systemName: "chevron.right")
+                        }.onTapGesture {
+                            withAnimation {
+                                showRightEyesightPicker.toggle()
                             }
                         }
-                        if showRightEyesightPicker {
-                            Picker(selection: $rightEyesightSelection, label:
+                    }
+                    if showRightEyesightPicker {
+                        Picker(selection: $rightEyesightSelection, label:
                                 Text("Picker Name")
-                                , content: {
-                                    ForEach(0..<51) { i in
-                                        Text(String(format: "%.1f", 5.0 - Double(i) / 10)).tag(String(format: "%.1f", 5.0 - Double(i) / 10))
-                                    }
-                            })
-                                .pickerStyle(WheelPickerStyle())
-                        }
-                        HStack {
-                            Text("记录日期")
-                            Spacer()
-                            DatePicker("", selection: $selectedDate, displayedComponents: .date)
-                                .fixedSize(horizontal: true, vertical: false)
-                        }
+                               , content: {
+                                ForEach(0..<51) { i in
+                                    Text(String(format: "%.1f", 5.0 - Double(i) / 10)).tag(String(format: "%.1f", 5.0 - Double(i) / 10))
+                                }
+                               })
+                            .pickerStyle(WheelPickerStyle())
                     }
-                }
-                .navigationBarTitle("新增视力记录")
-                .toolbar {
-                    ToolbarItem(placement: .confirmationAction) {
-                        Button(action: {}, label: {
-                            Text("保存")
-                        })
-                    }
-                    ToolbarItem(placement: .cancellationAction) {
-                        Button(action: {}, label: {
-                            Text("取消")
-                        })
+                    HStack {
+                        Text("记录日期")
+                        Spacer()
+                        DatePicker("", selection: $selectedDate, displayedComponents: .date)
+                            .fixedSize(horizontal: true, vertical: false)
                     }
                 }
             }
-        })
+            .navigationBarTitle("新增视力记录")
+            .toolbar {
+                ToolbarItem(placement: .confirmationAction) {
+                    Button(action: {
+                        isPresented.toggle()
+                    }, label: {
+                        Text("保存")
+                    })
+                }
+                ToolbarItem(placement: .cancellationAction) {
+                    Button(action: {
+                        isPresented.toggle()
+                    }, label: {
+                        Text("取消")
+                    })
+                }
+            }
+        }
     }
 }
 
 struct AddRecordView_Previews: PreviewProvider {
     static var previews: some View {
-        AddRecordView()
+        AddRecordView(isPresented: .constant(true))
     }
 }
