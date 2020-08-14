@@ -80,11 +80,13 @@ struct EyesightRecordCardView: View {
                     Spacer()
                     RoundedRectangle(cornerRadius: 12)
                         .frame(width: 164, height: 60)
+                        .aspectRatio(164 / 60.0 , contentMode: .fit)
                         .foregroundColor(Color(#colorLiteral(red: 0.7450980392, green: 0.8901960784, blue: 0.8588235294, alpha: 1)))
                         .offset(y: 20)
                 }
                 RoundedRectangle(cornerRadius: 12)
-                    .frame(width: 342, height: 133)
+//                    .frame(width: 342, height: 133)
+                    .aspectRatio(342 / 133.0 , contentMode: .fit)
                     .foregroundColor(Color(#colorLiteral(red: 0.7450980392, green: 0.8901960784, blue: 0.8588235294, alpha: 1)))
                 
             }.padding()
