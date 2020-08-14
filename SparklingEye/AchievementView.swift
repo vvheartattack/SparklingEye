@@ -29,7 +29,6 @@ struct AchievementView: View {
            
         }
         .navigationBarTitle("成就系统", displayMode: .inline)
-        .navigationBarColor(backgroundColor: UIColor(red: 0, green: 0, blue: 0, alpha: 0), tintColor: UIColor(red: 250 / 255.0, green: 158 / 255.0, blue: 141 / 255.0, alpha: 1), hiddenShadow: true)
     }
 }
 
@@ -44,7 +43,7 @@ struct GreenEyePrintView: View {
         ZStack {
             Ellipse()
                 .foregroundColor(.white)
-                .frame(width: 45, height: 44)
+                .frame(width: 44, height: 44)
                 .overlay(
                     Image(systemName: "eye.circle.fill").foregroundColor(Color(#colorLiteral(red: 0.7803921569, green: 0.8823529412, blue: 0.8274509804, alpha: 1)))
                         .font(.system(size: 36))
@@ -58,7 +57,7 @@ struct RedEyePrintView: View {
         ZStack {
             Ellipse()
                 .foregroundColor(.white)
-                .frame(width: 45, height: 44)
+                .frame(width: 44, height: 44)
                 .overlay(
                     Image(systemName: "eye.circle.fill").foregroundColor(Color(#colorLiteral(red: 0.9764705882, green: 0.8431372549, blue: 0.7294117647, alpha: 1)))
                         .font(.system(size: 36))
@@ -103,7 +102,7 @@ struct EmptyPrintView: View {
     var body: some View {
         Ellipse()
             .foregroundColor(.white)
-            .frame(width: 45, height: 44)
+            .frame(width: 44, height: 44)
     }
 }
 
@@ -170,11 +169,9 @@ struct TopCardView: View {
                 ZStack {
                     RoundedRectangle(cornerRadius: 20)
                         .stroke(Color.white, lineWidth: 5)
-                        .padding()
+                        .padding(.all, 22)
                     
                     TopPrintView()
-                    
-                    
                 }
             }
             .padding()
@@ -213,7 +210,7 @@ struct BottomCardView: View {
                 ZStack {
                     RoundedRectangle(cornerRadius: 20)
                         .stroke(Color.white, lineWidth: 5)
-                        .padding()
+                        .padding(.all, 22)
                     
                     BottomPrintView()
                 }
