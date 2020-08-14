@@ -35,8 +35,7 @@ struct ContentView: View {
                 }
             }
             .navigationBarHidden(true)
-            
-            
+            .navigationBarColor(backgroundColor: UIColor(red: 0, green: 0, blue: 0, alpha: 0), tintColor: UIColor(red: 190 / 255.0, green: 227 / 255.0, blue: 219 / 255.0, alpha: 1), hiddenShadow: true)
         }
         
     }
