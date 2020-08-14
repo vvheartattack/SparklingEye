@@ -66,8 +66,21 @@ struct RelaxEyeView: View {
                     .foregroundColor(Color(#colorLiteral(red: 0.2588235294, green: 0.2588235294, blue: 0.4156862745, alpha: 1)).opacity(0.3))
                     .font(.system(size: 45, weight: .medium))
                 Spacer()
-            
-            
+                
+                ZStack {
+                    Image("circleGroup")
+                        .resizable()
+                        .aspectRatio(236 / 236, contentMode: .fit)
+                        .frame(width: 236, height: 236)
+                        .overlay(
+                            Text("5")
+                                .font(.system(size: 75, weight: .semibold, design: .rounded))
+                                .foregroundColor(Color(#colorLiteral(red: 0.2588235294, green: 0.2588235294, blue: 0.4156862745, alpha: 1)).opacity(0.5))
+                        )
+                    
+                }
+                Spacer()
+                Spacer()
             }
             .padding()
             .onAppear {
