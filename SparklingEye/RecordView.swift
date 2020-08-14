@@ -42,11 +42,14 @@ struct RecordView: View {
             }
         }
         .navigationBarTitle("视力记录", displayMode: .inline)
+        .navigationBarColor(backgroundColor: UIColor(red: 0, green: 0, blue: 0, alpha: 0), tintColor: UIColor(Color(#colorLiteral(red: 0.3333333333, green: 0.3568627451, blue: 0.431372549, alpha: 1))), hiddenShadow: true)
         .navigationBarItems(trailing:  
                                 Image(systemName: "plus")
                                     .font(.system(size: 28))
+                                .foregroundColor(Color(#colorLiteral(red: 0.9803921569, green: 0.6196078431, blue: 0.5529411765, alpha: 1)))
                                     .onTapGesture { showAddRecordView = true }
         )
+        
         .sheet(isPresented: $showAddRecordView) {
             AddRecordView(isPresented: $showAddRecordView, saveAction: { record in
                 withAnimation(.spring()) {
