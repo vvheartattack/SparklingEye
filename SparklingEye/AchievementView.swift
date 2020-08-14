@@ -29,6 +29,7 @@ struct AchievementView: View {
            
         }
         .navigationBarTitle("成就系统", displayMode: .inline)
+        .navigationBarColor(backgroundColor: UIColor(red: 0, green: 0, blue: 0, alpha: 0), tintColor: UIColor(red: 250 / 255.0, green: 158 / 255.0, blue: 141 / 255.0, alpha: 1), hiddenShadow: true)
     }
 }
 
